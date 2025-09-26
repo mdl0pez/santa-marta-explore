@@ -1,0 +1,726 @@
+/* 1. DEFINICIÓN DE FUENTES Y VARIABLES GLOBALES */
+
+/* Cargar Fuente Local: Concert One */
+@font-face {
+  font-family: 'Concert One';
+  src: url('../fonts/Concert_One/ConcertOne-Regular.ttf') format('truetype');
+  font-weight: 400; /* Peso normal */
+  font-style: normal;
+}
+
+/* Cargar Fuente Local: Carlito */
+@font-face {
+  font-family: 'Carlito';
+  src: url('../fonts/Carlito/Carlito-Regular.ttf') format('truetype');
+  font-weight: 400; /* Peso normal */
+  font-style: normal;
+}
+
+/* Cargar Fuente Local: Baloo */
+@font-face {
+  font-family: 'Baloo';
+  src: url('../fonts/Baloo/Baloo-Regular.ttf') format('truetype');
+  font-weight: 400; /* Peso normal */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Baloo 2';
+  src: url('../fonts/Baloo_2/static/Baloo2-Regular.ttf') format('truetype');
+  font-weight: 400; /* Peso normal */
+  font-style: normal;
+}
+
+/* Se definen las variables CSS (custom properties) para todo el documento. */
+:root {
+    --primary-color: #00AEEF; /* Color de acento principal */
+    --secondary-color: rgba(255, 255, 255, 0.8);
+    --dark-blue: #0A2540;     /* Azul oscuro para textos importantes */
+    --light-gray: #f4f4f4;    /* Gris claro para fondos de secciones */
+    --text-color: #333;       /* Color de texto principal */
+    --white-color: #fff;      /* Color blanco */
+}
+
+/* El selector universal (*) aplica estos estilos a TODOS los elementos. */
+* {
+    margin: 0; /* Elimina márgenes exteriores por defecto */
+    padding: 0; /* Elimina rellenos interiores por defecto */
+    box-sizing: border-box; /* Cambia el modelo de caja para que el padding y borde no aumenten el tamaño total */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fuente por defecto */
+}
+
+/* Estilos base para toda la página. */
+body {
+    background-color: var(--light-gray); /* Color de fondo general */
+    color: var(--text-color); /* Color de texto general */
+}
+
+/* 2. BARRA DE NAVEGACIÓN (HEADER) */
+
+/* Estilos para el contenedor principal del encabezado. */
+header {
+    position: fixed; /* Lo saca del flujo normal para posicionarlo sobre el 'hero' */
+    width: 100%; /* Ocupa todo el ancho */
+    z-index: 10; /* Se asegura de que esté por encima de otros elementos */
+    padding: 10px 50px; /* Relleno superior/inferior y a los lados */
+    background: #3FB0DE; /* Color de fondo de la barra */
+}
+
+/* Contenedor de la navegación, usa Flexbox para alinear sus hijos. */
+nav {
+    display: flex; /* Activa el layout flexible */
+    justify-content: space-between; /* Distribuye los hijos: logo a la izquierda, links al centro, botones a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+    max-width: 1400px; /* Ancho máximo para el contenido de la barra */
+    margin: 0 auto; /* Centra la barra horizontalmente */
+    width: 100%;
+}
+
+.logo img {
+    border-radius: 50%; /* Hace la imagen del logo circular */
+    width: 50px;
+    height: 50px;
+    display: block;
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos para la lista de enlaces de navegación. */
+.nav-links {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex; /* Pone los elementos de la lista en una fila */
+    gap: 90px; /* Espacio entre cada enlace */
+}
+
+/* Estilos para cada enlace individual de la navegación. */
+.nav-links a {
+    text-decoration: none; /* Quita el subrayado */
+    color: var(--white-color);
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent; /* Borde inferior invisible que aparecerá al pasar el mouse */
+    transition: border-color 0.3s; /* Animación suave para el cambio de color del borde */
+}
+
+/* Efecto al pasar el mouse sobre un enlace. */
+.nav-links a:hover {
+    border-color: var(--white-color); /* Cambia el color del borde inferior */
+}
+
+.nav-links .dropdown_item {
+    position: relative;
+    /*padding-bottom: 12px;*/
+}
+
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00afef8e;
+    min-width: 300px;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    z-index: 90;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown_item:hover .dropdown_menu {
+    display: block;
+}
+
+.dropdown_columns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown_columns li {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dropdown_columns a {
+    color: #ffffff;
+    font-size: 16px;
+    white-space: nowrap;
+    padding: 5px 0;
+}
+
+.dropdown_columns a:hover {
+    color: #e0e0e0;
+    border-bottom: none;
+}
+
+/* Contenedor para los botones de autenticación. */
+.auth-buttons {
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    align-items: center;
+}
+
+/* Estilos generales para todos los botones. */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    font-weight: bold;
+    cursor: pointer; /* Cambia el cursor a una mano */
+    transition: all 0.3s; /* Animación suave para todos los cambios */
+}
+
+/* Estilos para el botón de 'Iniciar Sesión'. */
+.btn-login {
+    background-color: transparent;
+    border: 2px solid var(--white-color);
+    color: var(--white-color);
+}
+
+.btn-login:hover {
+    background-color: var(--white-color);
+    color: var(--dark-blue);
+}
+
+/* Estilos para el botón de 'Registrarme'. */
+.btn-register {
+    background-color: transparent;
+    border: 2px solid var(--white-color);
+    color: var(--white-color);
+}
+
+.btn-register:hover {
+    background-color: var(--white-color);
+    color: var(--dark-blue);
+}
+
+/* Menu para celulares */
+.hamburger-menu {
+    display: none;
+}
+
+/* 3. SECCIÓN HERO (BANNER PRINCIPAL) */
+
+/* Contenedor del banner principal. */
+.hero {
+    height: 70vh; /* Ocupa el 70% de la altura de la pantalla */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/main_portada.png'); /* Imagen de fondo con una capa oscura encima para legibilidad */
+    background-size: cover; /* La imagen cubre todo el contenedor */
+    background-position: center; /* La imagen se centra */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+    text-align: center;
+    color: var(--white-color);
+    position: relative; /* Necesario para posicionar la barra de búsqueda de forma absoluta dentro de él */
+}
+
+/* Estilos para el título principal 'Santa Marta'. */
+.hero-content h1 {
+    font-family: 'Concert One', cursive; /* Usa la fuente personalizada */
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.7); /* Blanco con 70% de opacidad */
+    margin-bottom: 10px;
+}
+
+/* Estilos para la palabra 'EXPLORE'. */
+.hero-content h1 span {
+    font-family: 'Concert One', cursive;
+    display: block; /* Hace que ocupe su propia línea */
+    font-size: 80px;
+    letter-spacing: 0.05em;
+    color: rgb(198, 233, 246, 0.8); /* Azul claro con 80% de opacidad */
+}
+
+/* Estilos para la barra de búsqueda. */
+.search-bar {
+    background-color: var(--white-color);
+    border-radius: 50px;
+    padding: 12px 15px 12px 25px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25); /* Sombra para darle profundidad */
+    position: absolute; /* Posicionamiento absoluto relativo al '.hero' */
+    bottom: -30px; /* Se posiciona 30px por debajo del borde del hero, creando un efecto de superposición */
+    left: 50%;
+    transform: translateX(-50%); /* Centra perfectamente en horizontal */
+    width: 90%;
+    max-width: 988px;
+}
+
+/* Estilos para el campo de texto de la búsqueda. */
+.search-bar input {
+    flex-grow: 1; /* Ocupa todo el espacio disponible */
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: 'Carlito', sans-serif;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilos para el texto de ejemplo (placeholder). */
+.search-bar input::placeholder {
+    font-family: 'Carlito', sans-serif;
+    font-style: italic; /* Cursiva */
+    font-weight: 700; /* Negrita */
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: rgba(126, 126, 126, 0.7); /* Gris con 70% de opacidad */
+}
+
+/* Estilos para el botón con el ícono de búsqueda. */
+.search-bar .search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    padding: 5px;
+}
+
+/* 4. SECCIÓN DE RECOMENDACIONES (TARJETAS) */
+
+/* Contenedor principal de la sección de recomendaciones. */
+.recommendations {
+    padding: 60px 50px; /* Relleno para separar esta sección del resto */
+    text-align: center;
+}
+
+/* Título de la sección 'Recomendaciones del día'. */
+.recommendations h2 {
+    font-size: 2.2rem;
+    margin-bottom: 40px; /* Espacio debajo del título */
+    color: var(--dark-blue);
+}
+
+/* Contenedor que agrupa todas las tarjetas. */
+.cards-container {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    gap: 30px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas pasen a la siguiente línea en pantallas pequeñas */
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+/* Estilos para una tarjeta individual. */
+.card {
+    width: 350px;
+    height: 220px;
+    background-color: var(--white-color);
+    border-radius: 15px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta cualquier contenido que se salga de los bordes redondeados */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave para el hover */
+    position: relative; /* Necesario para posicionar el texto y el rating sobre la imagen */
+    cursor: pointer;
+}
+
+/* Efecto al pasar el mouse sobre una tarjeta. */
+.card:hover {
+    transform: translateY(-10px); /* Mueve la tarjeta 10px hacia arriba */
+}
+
+/* Estilos para la imagen dentro de la tarjeta. */
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra toda la tarjeta sin deformarse */
+}
+
+/* Estilos para el título de la tarjeta. */
+.card-info h3 {
+    font-size: 1.4rem;
+    color: var(--white-color);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Sombra para que el texto sea legible sobre la imagen */
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Posicionamiento absoluto relativo a la '.card' */
+    bottom: 20px; /* A 20px del borde inferior */
+    left: 20px; /* A 20px del borde izquierdo */
+    z-index: 2; /* Se asegura de que esté por encima de la imagen */
+}
+
+/* Estilos para el contenedor de la calificación (estrella y número). */
+.rating {
+    position: absolute;
+    bottom: 20px; /* A 20px del borde inferior */
+    right: 20px; /* A 20px del borde derecho */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Estilos para el ícono de la estrella. */
+.rating .fa-star {
+    color: #FFD700; /* Color dorado */
+    margin-right: 5px;
+}
+
+/* 5. ESTILOS RESPONSIVOS (MEDIA QUERIES)*/
+
+/* --- Estilos para Tablets (hasta 1024px) --- */
+@media (max-width: 1024px) {
+    /* Reducimos el espacio entre los enlaces de navegación */
+    .nav-links {
+        gap: 40px;
+    }
+
+    /* Reducimos el padding del header para que ocupe menos espacio */
+    header {
+        padding: 15px 30px;
+    }
+
+    /* Ajustamos el tamaño del título principal */
+    .hero-content h1 {
+        font-size: 45px;
+    }
+    .hero-content h1 span {
+        font-size: 70px;
+    }
+}
+
+
+/* --- Estilos para Celulares (hasta 768px) --- */
+@media (max-width: 768px) {
+    
+    /* --- NAVEGACIÓN MÓVIL --- */
+    
+    /* Ocultamos el menú de navegación de escritorio */
+    .nav-links, .auth-buttons {
+        display: none;
+    }
+
+    /* Hacemos visible el ícono de hamburguesa */
+    .hamburger-menu {
+        display: block; /* Lo hacemos visible */
+        font-size: 1.8rem;
+        color: var(--white-color);
+        cursor: pointer;
+    }
+
+    /* Estilos para el menú desplegable (inicialmente oculto) */
+    nav {
+        flex-wrap: wrap; /* Permitimos que los elementos se reordenen */
+    }
+
+    /* Cuando el menú esté activo (clase 'active'), lo mostramos */
+    .nav-links.active {
+        display: flex;
+        flex-direction: column; /* Apilamos los enlaces verticalmente */
+        width: 100%;
+        background-color: #3FB0DE;
+        position: absolute;
+        top: 80px; /* Lo posicionamos debajo del header */
+        left: 0;
+        padding: 20px 0;
+        gap: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* También mostramos los botones dentro del menú activo */
+     .auth-buttons.active {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+        margin-top: 15px;
+        align-items: center;
+    }
+
+    /* --- AJUSTES GENERALES PARA MÓVIL --- */
+    
+    /* Reducimos la altura del banner principal */
+    .hero {
+        height: 60vh;
+    }
+
+    /* Reducimos aún más el tamaño de la fuente del título */
+    .hero-content h1 {
+        font-size: 35px;
+    }
+    .hero-content h1 span {
+        font-size: 55px;
+    }
+
+    /* Ajustamos la barra de búsqueda para que no sea tan ancha */
+    .search-bar {
+        max-width: 90%;
+        padding: 10px 15px;
+    }
+     .search-bar input::placeholder {
+        font-size: 16px;
+    }
+
+    /* Reducimos el padding en la sección de recomendaciones */
+    .recommendations {
+        padding: 80px 20px 40px 20px; /* Aumentamos el padding superior para que no se choque con la search-bar */
+    }
+
+    /* Hacemos que las tarjetas ocupen casi todo el ancho y se apilen */
+    .card {
+        width: 95%;
+        max-width: 350px; /* Le ponemos un máximo para que no se estire demasiado */
+    }
+}
+
+/* 6. ESTILOS PARA LA PANTALLA DE BIENVENIDA (SPLASH SCREEN) */
+
+/* Contenedor principal de la pantalla de bienvenida */
+#splash-screen {
+    position: fixed; /* Se queda fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+    background-image: url('../img/welcome.jpg'); 
+    background-size: cover;
+    background-position: center;
+    z-index: 9999; /* Se asegura de que esté por encima de todo */
+    display: flex; /* Usa Flexbox para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out; /* Animación suave de 1 segundo para la opacidad */
+}
+
+/* Contenedor del texto y logo */
+.splash-content {
+    text-align: center;
+}
+
+/* Estilo para "Santa Marta" */
+.splash-title {
+    font-family: 'Concert One', cursive;
+    font-weight: 400;
+    font-size: 120px;
+    letter-spacing: 0.01em;
+    color: rgba(254, 254, 254, 0.91);
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+}
+
+/* Contenedor para "EXPLORE" con el logo */
+.splash-logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo', cursive;
+    font-weight: 400;
+    font-size: 180px;
+    letter-spacing: 0.01em;
+    color: #60C8F3;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.35);
+}
+
+.splash-logo-title img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: 0 10px;
+    outline: 4px solid #60C8F3;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+
+/* Clase que usaremos con JavaScript para ocultar la pantalla */
+#splash-screen.hidden {
+    opacity: 0; /* Lo hace transparente */
+    visibility: hidden; /* Lo oculta de la vista y de interacciones */
+    transition: 0.4s;
+}
+
+/* --- Estilos para Recomendaciones con descripción --- */
+.recommendations-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.recommendation-item {
+    width: 320px;
+    text-align: left;
+}
+
+.recommendation-item .card {
+    margin-bottom: 15px; /* Espacio entre la imagen y la descripción */
+}
+
+.description {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* --- Estilos para el Mapa Interactivo --- */
+.interactive-map {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f9ff; /* Un color de fondo suave */
+}
+
+.interactive-map h2 {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 30px;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.map-container img {
+    width: 100%;
+    display: block;
+}
+
+/* --- Estilos para el Footer (Pie de página) --- */
+footer {
+    background-color: #00A8E8; /* Color azul del footer */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.contact-info {
+    font-size: 1.1em;
+}
+
+.contact-info i {
+    margin-right: 8px;
+}
+
+.social-media a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+/* --- ARREGLO PARA LAS RECOMENDACIONES CON DESCRIPCIÓN --- */
+
+.recommendation-card {
+  width: 350px; /* Mismo ancho que la clase .card para que se alinee perfecto */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espacio entre la tarjeta y la descripción */
+}
+
+.description {
+  font-size: 0.95em;
+  color: #555;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* --- Estilos para el Mapa Interactivo --- */
+.interactive-map {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f9ff;
+}
+
+.interactive-map h2 {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 30px;
+}
+
+/* Le damos una altura fija al contenedor del mapa para que sea visible */
+#map {
+    width: 100%;
+    height: 600px; /* ¡CAMBIO CLAVE! Altura fija para el mapa */
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    position: relative; /* Necesario para posicionar el botón flotante */
+    z-index: 1; /* Asegura que el mapa esté en un contexto de apilamiento */
+}
+
+/* Botón flotante sobre el mapa */
+.map-fixed-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 401; /* Debe estar por encima del mapa (que tiene z-index de 400 por defecto) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--white-color);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.map-fixed-button img {
+    width: 24px; /* Tamaño del ícono corregido */
+    height: 24px;
+}
+
+.map-fixed-button:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para los popups del mapa */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.leaflet-popup-content {
+    text-align: center;
+}
+
+.leaflet-popup-content .button-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}

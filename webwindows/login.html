@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Santa Marta Explore</title>
+    
+    <link rel="stylesheet" href="../css/login-styles.css">
+    <link rel="stylesheet" href="../css/all.min.css">    
+</head>
+<body>
+
+    <header>
+        <!-- Sección de encabezado -->
+        <div class="header-content">
+            <div class="logo-title">
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Logo Santa Marta Explore">
+                </a>
+    
+                <h1>Inicio de sesión</h1>
+            </div>
+            <button class="btn btn-register">REGISTRARME</button>
+        </div>
+    </header>
+
+    <main class="login-container">
+        <!-- Sección de inicio de sesión -->
+        <div class="user-icon-container">
+            <i class="fas fa-user"></i>
+        </div>
+        
+        <h2>ACCEDE A TU CUENTA</h2>
+        
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Usuario">
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña">
+                <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility()"></i>
+            </div>
+            
+            <a href="#" class="forgot-password">¿Has olvidado tu contraseña?</a>
+            
+            <button type="submit" class="btn btn-login">Iniciar Sesión</button>
+        </form>
+    </main>
+
+    <script src="../js/login.js"></script>
+
+</body>
+</html>

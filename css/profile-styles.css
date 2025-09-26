@@ -1,0 +1,584 @@
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+.user_profile_photo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+}
+
+.profile_page_main {
+    background-color: #ffffff;
+    padding-bottom: 50px;
+    margin-top: 70px;
+}
+
+.profile_hero_section {
+    position: relative;
+    height: 350px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.profile_background_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    filter: brightness(80%);
+}
+
+.logout_icon_container {
+    top: 20px;
+    right: 20px;
+    z-index: 15;
+    background-color: #ffffff;
+    color: var(--primary-color);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 10px #555a5c91;
+}
+
+.logout_icon_container i {
+    font-size: 22px;
+}
+
+.profile_info_container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: -117px;
+}
+
+.profile_avatar img {
+    width: 200px;
+    height: 200px;
+    border: 5px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile_info_container h2 {
+    font-size: 22px;
+    font-family: 'Archivo';
+    font-weight: bold;
+    color: rgba(95, 95, 95, 0.9);
+}
+
+.profile_info_container p {
+    font-family: 'Archivo';
+    font-size: 18px;
+    color: rgba(95, 95, 95, 0.65);
+    margin-top: -15px;
+}
+
+.profile_buttons {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.profile_buttons button {
+    width: 220px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 60px;
+    color: var(--secondary-color);
+    padding: 4px 20px;
+    cursor: pointer;
+    font-family: 'Baloo 2';
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.profile_buttons button:hover {
+    background-color: #328db0;
+}
+
+.visit_history_section {
+    padding: 30px 50px;
+    margin-top: 160px;
+}
+
+.favorite_places_section {
+    padding: 30px 50px;
+    margin-top: 0;
+}
+
+.visit_history_section h2, .favorite_places_section h2 {
+    font-family: 'Concert One';
+    color: var(--primary-color);
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.section_divider_top {
+    width: calc(100% - 10px);
+    height: 1px;
+    background-color: rgba(126, 126, 126, 0.5);
+    margin-bottom: 40px;
+    margin-top: -25px;
+    margin-right: 0;
+}
+
+.section_divider_bottom {
+    width: calc(100% - 10px);
+    height: 1px;
+    background-color: rgba(126, 126, 126, 0.5);
+    margin-top: 20px; 
+    margin-bottom: -20px; 
+    margin-left: 10px; 
+}
+
+.places_grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+    scrollbar-width: none;  /* Para Firefox */
+}
+
+.place_card {
+    flex-shrink: 0;
+    width: 300px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.place_card:hover {
+    transform: scale(1.03);
+    transition: 0.5s;
+}
+
+.place_card img {
+    width: 100%;
+    height: 200px;
+}
+
+.place_card p {
+    margin-top: 0;
+    font-family: 'Baloo 2';
+    font-weight: 600;
+    font-size: 20px;
+    color: #6f6f6f;
+}
+
+/* --- CÓDIGO PARA LA VENTANA "Editar Perfil" --- */
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+}
+
+.modal_content {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 40px;
+    width: 90%;
+    max-width: 1200px;
+    height: 550px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.close_modal_btn {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+.close_modal_btn:hover {
+    color: #328db0;
+}
+
+.modal_body {
+    display: flex;
+    gap: 30px;
+}
+
+.left_column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    padding-right: 20px;
+}
+
+.right_column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+    padding-right: 40px;
+}
+
+.right_column .modal_title {
+    font-family: 'Concert One';
+    font-size: 38px;
+    font-weight: 100;
+    color: var(--primary-color);
+    margin: 0 0 20px 0;
+}
+
+.modal_profile_icon {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.modal_profile_icon img {
+    width: 200px;
+    height: 200px;
+}
+
+.change_photo_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: -5px;
+    cursor: pointer;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.edit_profile_form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input_field_group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.left_column .input_field_group label {
+    position: relative;
+    z-index: 1;
+    background-color: #f2f2f2;
+    padding: 0 5px;
+    margin-left: 10px;
+    width: fit-content;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(80, 76, 76, 0.7);
+}
+
+.left_column .input_field_group input {
+    margin-top: -13px;
+    background-color: #f2f2f2;
+}
+
+.input_field_group input {
+    padding: 10px;
+    border: 1px solid rgba(80, 76, 76, 0.7);
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-size: 16px;
+}
+
+.right_column .input_field_group input {
+    margin-top: 5px;
+    background-color: #f2f2f2;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.left_column input {
+    width: 250px;
+    outline: none;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.description_section {
+    display: flex;
+    flex-direction: column;
+}
+
+.description_section label, .date_phone_section label {
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.description_section textarea {
+    min-height: 120px;
+    width: 650px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+    margin-top: 10px;
+    outline: none;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.date_phone_section {
+    display: flex;
+    gap: 80px;
+    margin-top: 20px;
+}
+
+.date_phone_section .input_field_group {
+    flex: none;
+}
+
+.input_with_icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.date_phone_section input {
+    width: 200px;
+    padding-right: 35px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.input_with_icon i {
+    position: absolute;
+    right: 15px;
+    color: rgba(80, 76, 76, 0.95);
+    cursor: pointer;
+}
+
+.right_column_footer {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 90px;
+    margin-left: -30px;
+}
+
+.right_column_footer button {
+    padding: 8px 20px;
+    border-radius: 21px;
+    width: 220px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Baloo 2';
+    font-weight: 600;
+}
+
+.save_changes_btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.save_changes_btn:hover {
+    background-color: #328db0;
+}
+
+.delete_account_btn {
+    background-color: #de3f3f;
+    color: var(--secondary-color);
+}
+
+.delete_account_btn:hover {
+    background-color: #c53838;
+}
+
+/* --- CÓDIGO PARA LA VENTANA "Cambiar Contraseña" --- */
+
+.small_modal {
+    max-width: 450px;
+    height: auto;
+}
+
+.small_modal .modal_content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    justify-content: center; 
+    text-align: center;      
+}
+
+.small_modal .modal_header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+    position: relative;
+}
+
+.modal_header .modal_title {
+    font-family: 'Concert One';
+    font-size: 38px;
+    font-weight: 100;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.small_modal .change_password_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.small_modal .input_field_group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.small_modal .input_field_group label {
+    position: absolute;
+    top: -19px;
+    left: 20px;
+    background-color: #f2f2f2;
+    padding: 0 5px;
+    font-family: 'Inter';
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(80, 76, 76, 0.7);
+    z-index: 10;
+}
+
+.small_modal .change_password_form input {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Inter';
+    font-size: 16px;
+    margin-top: -10px;
+    background-color: #f2f2f2;
+    margin-bottom: 20px;
+    outline: none;
+    color: rgba(80, 76, 76, 0.9);
+}
+
+.small_modal .password_form_footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.small_modal .save_password_btn {
+    margin-top: -40px;
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 20px;
+    border-radius: 21px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Baloo 2';
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.small_modal .save_password_btn:hover {
+    background-color: #328db0;
+}
+
+/* --- CÓDIGO PARA LA VENTANA DE CERRAR SESIÓN --- */
+
+.small_confirm_modal {
+    max-width: 400px; 
+    height: auto;
+    padding: 30px;
+    text-align: center;
+}
+
+.small_confirm_modal .modal_title {
+    font-family: 'Concert One';
+    font-size: 38px;
+    font-weight: 100;
+    color: var(--primary-color);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.small_confirm_modal p {
+    font-family: 'Archivo', sans-serif;
+    font-size: 16px;
+    color: #494949;
+    margin-bottom: 30px;
+}
+
+.confirm_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.confirm_buttons button {
+    padding: 10px 15px;
+    border-radius: 21px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 600;
+    min-width: 150px;
+}
+
+#confirm_logout_btn {
+    background-color: #de3f3f; 
+    color: white;
+}
+
+#cancel_logout_btn {
+    background-color: var(--primary-color);
+    color: white;
+}

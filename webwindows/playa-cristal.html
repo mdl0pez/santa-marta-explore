@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playa Cristal | Santa Marta Explore</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/location-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo_link">
+                <img src="../img/logo.png" alt="Santa Marta Explore Logo">
+            </a>
+            <span>Playa Cristal</span>
+        </div>
+        <nav>
+            <button class="btn_header btn_login">INICIAR SESIÓN</button>
+            <button class="btn_header btn_register">REGISTRARME</a></button>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Foto principal -->
+        <section class="hero_section">
+            <img src="../img/foto playa cristal.jpg" alt="Foto Playa Cristal" class="hero_image">
+            <div class="shadow_top_overlay">
+                <img src="../img/sombra_arriba.png" alt="Sombra Superior">
+            </div>
+            <div class="shadow_bottom_overlay">
+                <img src="../img/sombra_abajo.png" alt="Sombra inferior">
+            </div>
+
+            <!-- Nombre del lugar y botones -->
+            <div class="hero_overlay">
+                <div class="place_info">
+                    <h1>Playa Cristal</h1>
+                    <p>Parque Tayrona, Santa Marta</p>
+                </div>
+            </div>
+            <div class="favorite_star_container">
+                <button id="btn_star"><img src="../img/estrella.png" alt="Calificación" id="rating_icon_img"></button>
+            </div>
+        </section>
+
+        <div class="content_container">
+            <div class="actions_bar">
+                <button id="btn_share"><img src="../img/compartir.png" alt="Compartir" id="share_icon_img"></button>
+                <button id="btn_add_favorites">Añadir a favoritos<i class="far fa-heart"></i></button>
+            </div>
+
+            <!-- Información del lugar -->
+            <section class="info_section">
+                <p class="description">
+                    Playa Cristal, ubicada en el Parque Nacional Natural Tayrona en Santa Marta, es reconocida por su
+                    arena blanca, aguas tranquilas y cristalinas que invitan al descanso y a la práctica de esnórquel.
+                    Rodeada de vegetación y montañas, ofrece un paisaje paradisíaco ideal para quienes buscan
+                    desconectarse en un entorno natural protegido. A diferencia de otras playas, su acceso es limitado
+                    para preservar el ecosistema, lo que garantiza un ambiente más tranquilo y exclusivo. 
+                </p>
+            </section>
+
+            <!-- Mapa interactivo -->
+            <section class="map_section">
+                <h2>Mapa interactivo de la zona</h2>
+                <div class="map_container">
+                    <div id="interactive_map"></div>
+                    <div id="map">
+                        <a href="pagina-inexistente.html" class="map-fixed-button" title="Ver más información">
+                            <img src="img/agregar.png" alt="Icono de agregar">
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Fotos de los usuarios-->
+            <section class="photos_section">
+                <h2>Fotos de los usuarios</h2>
+                <div class="photos_grid">
+                    <img src="../img/foto_usuario1.png" alt="Foto de usuario 1">
+                    <img src="../img/foto_usuario2.png" alt="Foto de usuario 2">
+                    <img src="../img/foto_usuario3.png" alt="Foto de usuario 3">
+                    <img src="../img/foto_usuario4.png" alt="Foto de usuario 4">
+                    <img src="../img/foto_usuario5.png" alt="Foto de usuario 5">
+                </div>
+            </section>
+
+            <!-- Comentarios -->
+            <section class="reviews_section">
+                <h2 class="title_section">CALIFICA ESTE LUGAR</h2>
+                <div class="user_comment_section">
+                    <div class="rating_input">
+                        <div class="stars_to_rate">
+                            <img src="../img/calificar_estrellas.png" alt="Calificación en estrellas">
+                        </div>
+                        <div class="user_comment_form">
+                            <div class="user_avatar">
+                                <img src="../img/perfil_usuario.png" alt="Perfil del usuario">
+                            </div>
+                            <input type="text" placeholder="Agrega un comentario...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comments_list">
+                    <div class="user_comments">
+                        <div class="comment_header">
+                            <img src="../img/usuario_edgardo.png" alt="Perfil de Edgardo Morales" class="users">
+                            <div class="comment_info">
+                                <div class="comment_info">
+                                    <img src="../img/estrellas_calificadas.png" alt="Calificación en estrellas"
+                                        class="user_rating">
+                                </div>
+                                <span>Edgardo Morales</span>
+                            </div>
+                        </div>
+                        <p>El mejor lugar que he visitado en toda mi vida.</p>
+                    </div>
+                    <div class="user_comments">
+                        <div class="comment_header">
+                            <img src="../img/usuario_claudia.png" alt="Perfil de Claudia González" class="users">
+                            <div class="comment_info">
+                                <div class="comment_info">
+                                    <img src="../img/estrellas_calificadas.png" alt="Calificación en estrellas"
+                                        class="user_rating">
+                                </div>
+                                <span>Claudia González</span>
+                            </div>
+                        </div>
+                        <p>Ayer fui con mis padres y es hermoso.</p>
+                    </div>
+                    <div class="user_comments">
+                        <div class="comment_header">
+                            <img src="../img/usuario_daniel.png" alt="Perfil de Daniel Orozco" class="users">
+                            <div class="comment_info">
+                                <div class="comment_info">
+                                    <img src="../img/estrellas_calificadas.png" alt="Calificación en estrellas"
+                                        class="user_rating">
+                                </div>
+                                <span>Daniel Orozco</span>
+                            </div>
+                        </div>
+                        <p>Prometo regresar.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <button class="nav-btn prev-btn">&#10094;</button>
+        <img id="lightbox-image" alt="Imagen ampliada">
+        <button class="nav-btn next-btn">&#10095;</button>
+    </div>
+
+    <script src="../js/location.js"></script>
+</body>
+
+</html>

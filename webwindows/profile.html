@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario | Santa Marta Explore</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/profile-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <a href="../index.html" class="logo_link">
+                <img src="../img/logo.png" alt="Santa Marta Explore Logo">
+            </a>
+            <span>Perfil de Usuario</span>
+        </div>
+        <nav>
+            <a href="#" class="logout_icon_container">
+                <i class="fa fa-sign-out"></i>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Acciones de perfil -->
+    <main class="profile_page_main">
+        <section class="profile_hero_section">
+            <img src="../img/imagen_perfil_usuario.png" alt="Fondo de perfil" class="profile_background_image">
+            <div class="profile_info_container">
+                <div class="profile_avatar">
+                    <img src="../img/pf_johan_robles.png" alt="Foto de perfil">
+                </div>
+                <h2>Johan Alberto Robles Solano</h2>
+                <p>@johanroblessol</p>
+                <div class="profile_buttons">
+                    <button id="edit_profile_btn">Editar Perfil</button>
+                    <button id="chg_passwprd_btn">Cambiar Contraseña</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historial de visitas -->
+        <section class="visit_history_section">
+            <div class="section_divider_top"></div>
+            <h2>Historial de Visitas</h2>
+            <div class="places_grid">
+                <div class="place_card">
+                    <img src="../img/rio_buritaca.png" alt="Río Buritaca">
+                    <p>Río Buritaca</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/playa_chengue.png" alt="Playa Chengue">
+                    <p>Playa Chengue</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/cascada_oculta.png" alt="Cascada Oculta">
+                    <p>Cascada Oculta</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/pozo_azul.png" alt="Pozo Azul">
+                    <p>Pozo Azul</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/playa_cristal.png" alt="Playa Cristal">
+                    <p>Playa Cristal</p>
+                </div>
+            </div>
+            <div class="section_divider_bottom"></div>
+        </section>
+
+        <!-- Sitios Favoritos-->
+        <section class="favorite_places_section">
+            <h2>Sitios Favoritos</h2>
+            <div class="places_grid">
+                <div class="place_card">
+                    <img src="../img/cascada_oculta.png" alt="Cascada Oculta">
+                    <p>Cascada Oculta</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/rio_buritaca.png" alt="Río Buritaca">
+                    <p>Río Buritaca</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/playa_cristal.png" alt="Playa Cristal">
+                    <p>Playa Cristal</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/playa_chengue.png" alt="Playa Chengue">
+                    <p>Playa Chengue</p>
+                </div>
+                <div class="place_card">
+                    <img src="../img/pozo_azul.png" alt="Pozo Azul">
+                    <p>Pozo Azul</p>
+                </div>
+            </div>
+            <div class="section_divider_bottom"></div>
+        </section>
+    </main>
+
+    <!-- Editar Perfil -->
+    <div id="edit_profile_modal" class="modal">
+        <div class="modal_content">
+            <div class="modal_header">
+                <span class="close_modal_btn">&times;</span>
+            </div>
+
+            <div class="modal_body">
+                <div class="left_column">
+                    <div class="modal_profile_icon">
+                        <img src="../img/foto_de_perfil.png" alt="Foto de Perfil">
+                        <div class="change_photo_text">
+                            <p>Cambiar foto de perfil</p>
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                    </div>
+
+                    <form class="edit_profile_form">
+                        <div class="input_field_group">
+                            <label for="full_name">Nombre completo:</label>
+                            <input type="text" id="full_name" placeholder="Johan Alberto Robles Solano">
+                        </div>
+                        <div class="input_field_group">
+                            <label for="username">Nombre de usuario:</label>
+                            <input type="text" id="username" placeholder="johanroblessol">
+                        </div>
+                        <div class="input_field_group">
+                            <label for="email">Correo electrónico:</label>
+                            <input type="text" id="email" placeholder="johanroblessol@gmail.com">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="right_column">
+                    <h3 class="modal_title">Información personal</h3>
+                    <div class="description_section">
+                        <label for="description">Descripción</label>
+                        <textarea id="description" placeholder="max. 100 palabras"></textarea>
+                    </div>
+
+                    <div class="date_phone_section">
+                        <div class="input_field_group">
+                            <label for="birth_date">Fecha de nacimiento</label>
+                            <div class="input_with_icon">
+                                <input type="text" id="birth_date" placeholder="dd/mm/aa">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                        <div class="input_field_group">
+                            <label for="phone">Teléfono</label>
+                            <div class="input_with_icon">
+                                <input type="text" id="phone">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right_column_footer">
+                        <button class="save_changes_btn">Guardar Cambios</button>
+                        <button class="delete_account_btn">Eliminar cuenta</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Cambiar Contraseña -->
+    <div id="change_password_modal" class="modal">
+        <div class="modal_content small_modal">
+            <div class="modal_header">
+                <h3 class="modal_title">Cambiar Contraseña</h3>
+                <span class="close_modal_btn">&times;</span>
+            </div>
+
+            <form class="change_password_form">
+                <div class="input_field_group">
+                    <label for="current_password">Contraseña actual:</label>
+                    <input type="password" id="current_password">
+                </div>
+
+                <div class="input_field_group">
+                    <label for="new_password">Nueva contraseña:</label>
+                    <input type="password" id="new_password">
+                </div>
+
+                <div class="input_field_group">
+                    <label for="confirm_password">Confirmar nueva contraseña:</label>
+                    <input type="password" id="confirm_password">
+                </div>
+
+                <div class="password_form_footer">
+                    <button type="submit" class="save_password_btn">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmar Cierre de Sesión -->
+    <div id="logout_confirm_modal" class="modal">
+        <div class="modal_content small_confirm_modal">
+            <h3 class="modal_title">Cerrar Sesión</h3>
+            <p>¿Estás seguro de que quieres cerrar tu sesión actual?</p>
+
+            <div class="confirm_buttons">
+                <button id="confirm_logout_btn" class="delete_account_btn">Sí, Cerrar Sesión</button>
+                <button id="cancel_logout_btn" class="save_changes_btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/profile.js"></script>
+</body>
+
+</html>

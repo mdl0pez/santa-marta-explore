@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro | Santa Marta Explore</title>
+    
+    <link rel="stylesheet" href="../css/registration-styles.css"> 
+    <link rel="stylesheet" href="../css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-title">
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Logo Santa Marta Explore">
+                </a>
+
+                <h1>Registro de Usuario</h1>
+            </div>
+            <button class="btn btn-login">INICIAR SESIÓN</button>
+        </div>
+    </header>
+
+    <main class="register-container">
+        <!-- Sección de registro-->
+        <div class="user-icon-container">
+            <i class="fas fa-user"></i> 
+        </div>
+        
+        <h2>CREA TU CUENTA</h2> 
+        
+        <form>
+            <div class="input-group">
+                <input type="text" placeholder="Nombre completo" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Usuario" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" placeholder="Correo electrónico" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility()"></i>
+            </div>
+            
+            <button type="submit" class="btn btn-register">Registrarme</button>
+        </form>
+    </main>
+
+    <script src="../js/registration.js"></script>
+</body>
+
+</html>

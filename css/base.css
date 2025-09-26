@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Baloo';
+    src: url('../fonts/Baloo/Baloo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Baloo 2';
+    src: url('../fonts/Baloo_2/static/Baloo2-Regular.ttf') format('truetype'),
+         url('../fonts/Baloo_2/static/Baloo2-Bold.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter/static/Inter_18pt-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url('../fonts/Archivo/static/Archivo-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Concert One';
+    src: url(../fonts/Concert_One/ConcertOne-Regular.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --primary-color: #3fb0de; 
+    --secondary-color: rgba(255, 255, 255, 0.8);
+    --dark-blue: #0A2540;          
+    --white-color: #fff;           
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #343a40;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    max-height: 70px;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 10px 50px;
+    z-index: 100;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-family: 'Baloo 2';
+    font-size: 37px;
+}
+
+header .logo img {
+    display: flex;
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+}
+
+header nav .btn_header {
+    background-color: transparent;
+    border: 2px solid var(--white-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border-radius: 20px;          
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;    
+}
+
+header nav .btn_header:hover {
+    background-color: var(--white-color);
+    color: var(--dark-blue);
+}
+
+header nav .btn_header a:hover {
+    color: var(--dark-blue);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    gap: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Modal General para transiciones */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+}
+
+.modal_content {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 40px;
+    width: 90%;
+    max-width: 1200px;
+    height: 550px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transform: translateY(-50px);
+}
+
+.modal.active .modal_content {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.modal_header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.close_modal_btn {
+    display: flex;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+}

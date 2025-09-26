@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa Marta Explore</title>
+
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+</head>
+
+<body>
+    <div id="splash-screen">
+        <div class="splash-content">
+            <div class="splash-title">Santa Marta</div>
+
+            <div class="splash-logo-title">
+                <span>EXPL</span>
+                <img src="./img/logo_app.png" alt="Logo">
+                <span>RE</span>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav>
+            <!-- Sección de navegación -->
+            <div class="logo">
+                <img src="./img/logo.png" alt="Logo Santa Marta Explore">
+            </div>
+            <!-- Filtros -->
+            <ul class="nav-links">
+                <li class="dropdown_item">
+                    <a href="#">Actividades Turísticas</a>
+                    <div class="dropdown_menu">
+                        <ul class="dropdown_columns">
+                            <li><a href="#">Senderismo</a></li>
+                            <li><a href="#">Buceo</a></li>
+                            <li><a href="#">Tubing</a></li>
+                            <li><a href="#">Tirolesa</a></li>
+                            <li><a href="#">Degustación Gastronómica</a></li>
+                            <li><a href="#">Tour en Lancha</a></li>
+                            <li><a href="#">Turismo Cultural</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="dropdown_item">
+                    <a href="#">Presupuesto</a>
+                    <div class="dropdown_menu">
+                        <ul class="dropdown_columns">
+                            <li><a href="#">-$50.000</a></li>
+                            <li><a href="#">$50.000 - $150.000</a></li>
+                            <li><a href="#">$150.000 - $300.000</a></li>
+                            <li><a href="#">+$300.000</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="dropdown_item">
+                    <a href="#">Clima del día</a>
+                    <div class="dropdown_menu">
+                        <ul class="dropdown_columns">
+                            <li><a href="#">Soleado</a></li>
+                            <li><a href="#">Lluvioso</a></li>
+                            <li><a href="#">Nublado</a></li>
+                            <li><a href="#">Ventoso</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="dropdown_item">
+                    <a href="#">Intereses Específicos</a>
+                    <div class="dropdown_menu">
+                        <ul class="dropdown_columns">
+                            <li><a href="#">Fotografía</a></li>
+                            <li><a href="#">Festivales</a></li>
+                            <li><a href="#">Fauna y Flora</a></li>
+                            <li><a href="#">Historia</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <!-- Inicio y registro de sesión -->
+            <div class="auth-buttons">
+                <button class="btn btn-login">INICIAR SESIÓN</button>
+                <button class="btn btn-register">REGISTRARME</button>
+            </div>
+
+            <div class="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Santa Marta <br><span>EXPLORE</span></h1>
+                <!-- Barra de busqueda -->
+                <div class="search-bar">
+                    <input type="text" placeholder="¿A dónde te apetece ir hoy?">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i> </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="recommendations">
+            <h2>Recomendaciones del día</h2>
+            <!-- Tarjetas con las recomendaciones del día -->
+            <div class="cards-container">
+
+                <div class="recommendation-card">
+                    <div class="card clickable-card" data-href="./webwindows/cascada-oculta.html">
+                        <img src="./img/rec_cascada_oculta.png" alt="Cascada Oculta">
+                        <div class="card-info">
+                            <h3>Cascada Oculta</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i> <span>5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="description">
+                        Las Cascadas de Quebrada Valencia son un rincón natural que combina la majestuosidad de la
+                        Sierra Nevada de Santa Marta con la serenidad del mar, formando un paisaje de cascadas.
+                    </p>
+                </div>
+
+                <div class="recommendation-card">
+                    <div class="card clickable-card" data-href="./webwindows/playa-cristal.html">
+                        <img src="./img/rc_playa_cristal.png" alt="Playa Cristal">
+                        <div class="card-info">
+                            <h3>Playa Cristal</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="description">
+                        Es famosa por sus aguas cristalinas, arena blanca y por el impresionante paisaje montañoso que
+                        la rodea. Playa Cristal es un destino ideal para disfrutar de actividades acuáticas.
+                    </p>
+                </div>
+
+                <div class="recommendation-card">
+                    <div class="card clickable-card" data-href="./webwindows/playa-chengue.html">
+                        <img src="./img/rec_playa_chengue.png" alt="Playa Chengue">
+                        <div class="card-info">
+                            <h3>Playa Chengue</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="description">
+                        La Playa Chengue Santa Marta es una playa paradisiaca, virgen y poco visitada en medio del
+                        bosque tropical. En este lugar podrás hacer snorkeling y deslumbrarte con los hermosos arrecifes
+                        de coral.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="interactive-map">
+            <div id="map">
+                <a href="pagina-inexistente.html" class="map-fixed-button" title="Ver más información">
+                    <img src="img/agregar.png" alt="Icono de agregar">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p class="contact-info">
+                <i class="fas fa-envelope"></i> contacto@santamartaexplore.com | <i class="fas fa-phone"></i> +57 300
+                000 0000
+            </p>
+            <p class="social-media">
+                Síguenos en: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">YouTube</a>
+            </p>
+            <p class="copyright">
+                © 2025 Santa Marta Explore | Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
